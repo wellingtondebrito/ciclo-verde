@@ -1,8 +1,12 @@
 package com.br.futurodev.cicloVerde.cicloVerde.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CollectorModel {
 
     private static Long sequence = 1L;
+    private static List<CollectorModel> collectors = new ArrayList<>();
 
     private Long id;
     private String name;
@@ -30,5 +34,14 @@ public class CollectorModel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public static List<CollectorModel> getCollectors() {
+        return collectors;
+    }
+
+    public static CollectorModel addCollector(CollectorModel collector) {
+        collectors.add(collector);
+        return collector;
     }
 }

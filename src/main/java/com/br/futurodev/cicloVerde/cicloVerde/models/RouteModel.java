@@ -1,15 +1,19 @@
 package com.br.futurodev.cicloVerde.cicloVerde.models;
 
-public class RouteModels {
+import java.util.ArrayList;
+import java.util.List;
+
+public class RouteModel {
 
     private static Long sequence = 1L;
+    private static final List<RouteModel> routes = new ArrayList<>();
 
     private Long id;
     private String description;
     private String coverageArea;
     private Double efficiency;
 
-    public RouteModels() {
+    public RouteModel() {
         this.id = sequence++;
     }
 
@@ -39,5 +43,14 @@ public class RouteModels {
 
     public void setEfficiency(Double efficiency) {
         this.efficiency = efficiency;
+    }
+
+    public static List<RouteModel> getRoutes() {
+        return routes;
+    }
+
+    public static RouteModel addRoute(RouteModel route) {
+        routes.add(route);
+        return route;
     }
 }
