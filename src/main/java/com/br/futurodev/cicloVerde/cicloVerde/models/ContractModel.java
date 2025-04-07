@@ -9,23 +9,20 @@ public class ContractModel {
 
     private Long id;
     private CollectorModel collector;
-    private RouteModel route;
+    private List<RouteModel> routes = new ArrayList<>();
 
     public ContractModel() {
         this.id = sequence++;
     }
 
-    public static List<ContractModel> getContracts() {
-        return contracts;
-    }
 
     public static ContractModel addContract(ContractModel contract) {
         contracts.add(contract);
         return contract;
     }
 
-    public Long getId() {
-        return id;
+    public static List<ContractModel> getContracts() {
+        return contracts;
     }
 
     public CollectorModel getCollector() {
@@ -36,11 +33,11 @@ public class ContractModel {
         this.collector = collector;
     }
 
-    public RouteModel getRoute() {
-        return route;
+    public List<RouteModel> getRoutes() {
+        return routes;
     }
 
-    public void setRoute(RouteModel route) {
-        this.route = route;
+    public void setRoutes(List<RouteModel> routes) {
+        this.routes = routes;
     }
 }

@@ -36,7 +36,7 @@ public class RouteService {
         return routes;
     }
 
-    public RouteModel findeMaterialById(Long id) {
+    public RouteModel findRouteById(Long id) {
         for (RouteModel route : RouteModel.getRoutes()) {
             if (route.getId().equals(id)) {
                 return route;
@@ -46,7 +46,7 @@ public class RouteService {
     }
 
     public RouteResponseDto findById(Long id) {
-        RouteModel route = findeMaterialById(id);
+        RouteModel route = findRouteById(id);
         if (route != null) {
             return new RouteResponseDto(
                     route.getId(),
@@ -58,7 +58,7 @@ public class RouteService {
     }
 
     public RouteResponseDto updateRoute(Long id, RouteRequestDto routeDto) {
-        RouteModel route = findeMaterialById(id);
+        RouteModel route = findRouteById(id);
         if (route != null) {
             route.setDescription(routeDto.description());
             route.setCoverageArea(routeDto.coverageArea());
@@ -73,7 +73,7 @@ public class RouteService {
     }
 
     public RouteResponseDto deleteRoute(Long id) {
-        RouteModel route = findeMaterialById(id);
+        RouteModel route = findRouteById(id);
         if (route != null) {
             RouteModel.getRoutes().remove(route);
             return new RouteResponseDto(
